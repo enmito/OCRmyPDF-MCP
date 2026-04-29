@@ -13,6 +13,8 @@
 
 OCRmyPDF adds an OCR text layer to scanned PDF files, allowing them to be searched or copy-pasted.
 
+> **This fork adds a [Model Context Protocol](https://modelcontextprotocol.io) server** so OCRmyPDF can be invoked from LM Studio, Claude Desktop, and other MCP-compatible AI clients. See [`mcp/`](./mcp) for setup instructions.
+
 ```bash
 ocrmypdf                      # it's a scriptable command line program
    -l eng+fra                 # it supports multiple languages

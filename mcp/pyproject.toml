@@ -1,0 +1,27 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "ocrmypdf-mcp"
+version = "0.1.0"
+description = "MCP server for OCRmyPDF — adds searchable text layers to PDFs via any MCP-compatible AI client"
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MPL-2.0" }
+keywords = ["mcp", "ocr", "pdf", "tesseract", "llm"]
+dependencies = [
+    "ocrmypdf>=16.0.0",
+    "mcp>=1.0.0",
+]
+
+[project.scripts]
+ocrmypdf-mcp = "server:main"
+
+[project.urls]
+Homepage = "https://github.com/ocrmypdf/OCRmyPDF"
+Repository = "https://github.com/ocrmypdf/OCRmyPDF"
+
+[tool.hatch.build.targets.wheel]
+sources = [""]
+include = ["server.py"]
