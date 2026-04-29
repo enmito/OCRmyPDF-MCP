@@ -23,5 +23,4 @@ Homepage = "https://github.com/ocrmypdf/OCRmyPDF"
 Repository = "https://github.com/ocrmypdf/OCRmyPDF"
 
 [tool.hatch.build.targets.wheel]
-sources = [""]
-include = ["server.py"]
+only-include = ["server.py"]
