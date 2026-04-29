@@ -168,7 +168,15 @@ def _build_kwargs(
     sidecar: str,
 ) -> dict:
     langs = language.split("+") if "+" in language else [language]
-    kwargs: dict = {"language": langs, "optimize": optimize, "output_type": output_type}
+    # Force threaded workers + single job: OCRmyPDF's default multiprocessing
+    # backend deadlocks/crashes when invoked from asyncio.to_thread() on Windows.
+    kwargs: dict = {
+        "language": langs,
+        "optimize": optimize,
+        "output_type": output_type,
+        "use_threads": True,
+        "jobs": 1,
+    }
     if deskew:
         kwargs["deskew"] = True
     if rotate_pages:
